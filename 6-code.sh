@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Final stretch! We are going to exchange the code (as a script parameter) for tokens
+
 export code=$1
 ( set -x
 curl -s -v -u $client_id:$client_secret \

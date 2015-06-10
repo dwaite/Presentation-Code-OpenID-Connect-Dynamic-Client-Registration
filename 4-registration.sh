@@ -1,4 +1,5 @@
 #!/bin/bash
+# input JSON document for registration
 read -r -d "" registration_input << EOF
 {
   "application_type":           "web",
@@ -10,6 +11,7 @@ read -r -d "" registration_input << EOF
   "contacts":                  ["dwaite@pingidentity.com"]
 }
 EOF
+# Print out registration request
 echo "Registration Input:"
 echo $registration_input | jq .
 
@@ -19,10 +21,12 @@ export registration_output=$(
   curl -s -v "$registration_endpoint" --data-binary @/dev/stdin -H "Content-Type: application/json"
 )
 
+# Print out registration response
 echo
 echo "Registration Output:"
 echo $registration_output | jq .
 
+# Print out (and capture) client id and secret
 echo 
 echo "Client Credentials:"
 export client_id=$(echo -n $registration_output | jq -r .client_id )

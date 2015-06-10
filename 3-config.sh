@@ -4,6 +4,8 @@
 export domain=$(echo $issuer | sed -E 's/^http(s)?:\/\/([^\/]*)\//\2/g')
 
 export config=$(curl -s -v "https://mitreid.org/.well-known/openid-configuration")
+
+# Pretty print config
 echo $config | jq .
 
 # authorization_endpoint
