@@ -13,9 +13,10 @@ EOF
 echo "Registration Input:"
 echo $registration_input | jq .
 
+
 export registration_output=$(
   echo $registration_input |
-  curl -s -v "https://mitreid.org/register" --data-binary @/dev/stdin -H "Content-Type: application/json"
+  curl -s -v "$registration_endpoint" --data-binary @/dev/stdin -H "Content-Type: application/json"
 )
 
 echo
@@ -24,7 +25,7 @@ echo $registration_output | jq .
 
 echo 
 echo "Client Credentials:"
-export client_id=$(echo -n $registration_output | jq -r .client_id | tr -d '\n' )
-export client_secret=$(echo -n $registration_output | jq -r .client_secret | tr -d '\n')
+export client_id=$(echo -n $registration_output | jq -r .client_id )
+export client_secret=$(echo -n $registration_output | jq -r .client_secret )
 echo $client_id
 echo $client_secret

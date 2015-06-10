@@ -1,7 +1,7 @@
 #!/bin/sh
 
 (set -x;
-open "https://mitreid.org/authorize\
+open "$authorization_endpoint\
 ?client_id=$client_id\
 &response_type=code\
 &redirect_uri=http://localhost:4000/callback\
