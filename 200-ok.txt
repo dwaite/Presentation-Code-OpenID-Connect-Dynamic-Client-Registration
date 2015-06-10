@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Host: localhost
+Content-Type: text/html
+
+<html>
+<head>
+  <title>Don't Panic</title>
+</head>
+<body style='text-align:center'>
+  <h1>User Interaction Complete</h1>
+  <p>
+  You've arrived back at the callback URL with your code and state, to see this static landing page. Return to the command line, and proceed to next step!
+  </p>
+</body>
+</html>
