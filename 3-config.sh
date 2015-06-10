@@ -3,7 +3,7 @@
 # look up well-known configuration location based on issuer domain
 export domain=$(echo $issuer | sed -E 's/^http(s)?:\/\/([^\/]*)\//\2/g')
 
-export config=$(curl -s -v "https://mitreid.org/.well-known/openid-configuration")
+export config=$(curl -s -v "https://$domain/.well-known/openid-configuration")
 
 # Pretty print config
 echo $config | jq .
